@@ -1,5 +1,6 @@
+const CHOICES = ['Rock', 'Paper', 'Scissors'];
+
 function getComputerChoice() {
-    const CHOICES = ['Rock', 'Paper', 'Scissors'];
     return CHOICES[Math.floor(Math.random() * 3)];
 }
 
@@ -7,17 +8,33 @@ console.log(getComputerChoice());
 
 
 function playRound(playerSelection, computerSelection) {
-    const player = playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase()
-    if (player === computerSelection) {
-        return `Tie! You both picked ${player}`
-    } else if ((player === 'Rock' && computerSelection === 'Paper') || (player === 'Paper' && computerSelection === 'Scissors') || (player === 'Scissors' && computerSelection === 'Rock')) {
-        return `You Lose! ${computerSelection} beats ${player}`
+    if (playerSelection === computerSelection) {
+        console.log(`Tie! You both picked ${playerSelection}`)
+        return 0;
+    } else if ((playerSelection === 'Rock' && computerSelection === 'Paper') || (playerSelection === 'Paper' && computerSelection === 'Scissors') || (playerSelection === 'Scissors' && computerSelection === 'Rock')) {
+        console.log(`You Lose! ${computerSelection} beats ${playerSelection}`)
+        return -1;
     } else {
-        return `You Win! ${player} beats ${computerSelection}`
+        console.log(`You Win! ${playerSelection} beats ${computerSelection}`)
+        return 1;
     }
 }
-   
-  const playerSelection = "rock";
-  const computerSelection = getComputerChoice();
-  console.log(playRound(playerSelection, computerSelection));
-  
+
+
+
+function game() {
+
+    let score = 0
+    for (i = 0; i < 5; i++) {
+        let player = prompt('Select "Rock", "Paper","Scissors":')
+        player = player[0].toUpperCase() + player.slice(1).toLowerCase()
+
+        let round = playRound(player, getComputerChoice())
+        if (round === 1) {
+            score ++;
+        }
+    }
+    console.log(`Score:${score}`)
+}
+
+game();
