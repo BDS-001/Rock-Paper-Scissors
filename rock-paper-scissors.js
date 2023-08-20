@@ -40,9 +40,9 @@ function game() {
 
             if (playerScore === 3 || computerScore === 3) {
                 if (playerScore === 3) {
-                    setTimeout(function () { alert("You Win!"); }, 1);
+                    alert(`You Won! Final score was ${playerScore} and ${computerScore}`)
                 } else {
-                    setTimeout(function () { alert("You Lose!"); }, 1);
+                    alert(`You Lost! Final score was ${playerScore} and ${computerScore}`);
                 }
                 playerScore = 0;
                 computerScore = 0;
