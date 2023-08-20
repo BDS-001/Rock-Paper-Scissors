@@ -19,32 +19,36 @@ function game() {
     const buttons = document.querySelectorAll('button');
     const results = document.querySelector('#results');
     const scoreBoard = document.querySelector('#score')
-    let score = 0
-    let total = 0
+    let playerScore = 0
+    let computerScore = 0
 
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
             let roundResults = playRound(button.dataset.choice, getComputerChoice())
             results.innerHTML = roundResults[0]
             if (roundResults[1] === 1) {
-                score ++;
-                total ++;
+                playerScore ++;
+                results.style.color = 'lightgreen'
             } else if (roundResults[1] === -1) {
-                total ++;
+                computerScore ++;
+                results.style.color = 'red'
+            } else {
+                results.style.color = 'white'
             };
 
-            scoreBoard.innerHTML = `${score}/${total}`
+            scoreBoard.innerHTML = `Player ${playerScore}/${computerScore} Computer`
 
-            if (total === 5) {
-                if (score >= 3) {
-                    alert('You Win!')
+            if (playerScore === 3 || computerScore === 3) {
+                if (playerScore === 3) {
+                    setTimeout(function () { alert("You Win!"); }, 1);
                 } else {
-                    alert('You Lose!')
+                    setTimeout(function () { alert("You Lose!"); }, 1);
                 }
-                score = 0;
-                total = 0;
-                scoreBoard.innerHTML = `${score}/${total}`
-                results,innerHTML = "Select Rock, Paper, or Scissors to play! First to 3 points Wins!";
+                playerScore = 0;
+                computerScore = 0;
+                scoreBoard.innerHTML = `Player ${playerScore}/${computerScore} Computer`
+                results.innerHTML = "Select Rock, Paper, or Scissors to play! First to 3 points Wins!";
+                results.style.color = 'white'
             }
 
         })
