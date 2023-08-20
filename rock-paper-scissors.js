@@ -4,37 +4,47 @@ function getComputerChoice() {
     return CHOICES[Math.floor(Math.random() * 3)];
 }
 
-console.log(getComputerChoice());
-
-
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        console.log(`Tie! You both picked ${playerSelection}`)
-        return 0;
+        return [`Tie! You both picked ${playerSelection}`, 0]
     } else if ((playerSelection === 'Rock' && computerSelection === 'Paper') || (playerSelection === 'Paper' && computerSelection === 'Scissors') || (playerSelection === 'Scissors' && computerSelection === 'Rock')) {
-        console.log(`You Lose! ${computerSelection} beats ${playerSelection}`)
-        return -1;
+        return [`You Lose! ${computerSelection} beats ${playerSelection}`, -1]
     } else {
-        console.log(`You Win! ${playerSelection} beats ${computerSelection}`)
-        return 1;
+        return [`You Win! ${playerSelection} beats ${computerSelection}`, 1]
     }
 }
 
 
-
 function game() {
-
+    const buttons = document.querySelectorAll('button');
+    const results = document.querySelector('#results');
+    const scoreBoard = document.querySelector('#score')
     let score = 0
-    for (i = 0; i < 5; i++) {
-        let player = prompt('Select "Rock", "Paper","Scissors":')
-        player = player[0].toUpperCase() + player.slice(1).toLowerCase()
+    let total = 0
 
-        let round = playRound(player, getComputerChoice())
-        if (round === 1) {
-            score ++;
-        }
-    }
-    console.log(`Score:${score}`)
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            let roundResults = playRound(button.dataset.choice, getComputerChoice())
+            results.innerHTML = roundResults[0]
+            if (roundResults[1] === 1) {
+                score ++;
+                total ++;
+            } else if (roundResults[1] === -1) {
+                total ++;
+            };
+
+            scoreBoard.innerHTML = `${score}/${total}`
+
+            if (total === 5) {
+                if (score >= 3) {
+                    alert('You Win!')
+                } else {
+                    alert('You Lose!')
+                }
+            }
+
+        })
+    })    
 }
 
 game();
