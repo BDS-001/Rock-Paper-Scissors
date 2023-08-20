@@ -41,6 +41,10 @@ function game() {
                 } else {
                     alert('You Lose!')
                 }
+                score = 0;
+                total = 0;
+                scoreBoard.innerHTML = `${score}/${total}`
+                results,innerHTML = "Select Rock, Paper, or Scissors to play! First to 3 points Wins!";
             }
 
         })
