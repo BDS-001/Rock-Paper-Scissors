@@ -1,58 +1,62 @@
-Rock Paper Scissors
+# Rock Paper Scissors
+
 A classic Rock Paper Scissors game built with HTML, CSS, and JavaScript.
-Description
+
+## Description
+
 This is a simple browser-based implementation of Rock Paper Scissors where you play against the computer. The game has a clean, modern interface with large buttons for each choice. The first player to reach 3 points wins the game.
-Features
 
-Interactive UI with visual feedback
-Score tracking
-First-to-3 scoring system
-Round result messages
-Auto-reset after a player wins
+## Features
 
-How to Play
+- Interactive UI with visual feedback
+- Score tracking
+- First-to-3 scoring system
+- Round result messages
+- Auto-reset after a player wins
 
-Open the index.html file in your browser
-Click on one of the three buttons to make your choice:
+## How to Play
 
-Rock (gray button)
-Paper (white button)
-Scissors (light sea green button)
+1. Open the `index.html` file in your browser
+2. Click on one of the three buttons to make your choice:
+   - Rock (gray button)
+   - Paper (white button)
+   - Scissors (light sea green button)
+3. The computer will randomly choose Rock, Paper, or Scissors
+4. The result of the round will be displayed below the buttons
+5. The score will update at the top of the screen
+6. The first player to reach 3 points wins the game
+7. After a win, the game resets automatically
 
+## Game Logic
 
-The computer will randomly choose Rock, Paper, or Scissors
-The result of the round will be displayed below the buttons
-The score will update at the top of the screen
-The first player to reach 3 points wins the game
-After a win, the game resets automatically
+- Rock beats Scissors
+- Scissors beats Paper
+- Paper beats Rock
+- If both players choose the same option, it's a tie
 
-Game Logic
+## Technologies Used
 
-Rock beats Scissors
-Scissors beats Paper
-Paper beats Rock
-If both players choose the same option, it's a tie
+- HTML5
+- CSS3
+- JavaScript (ES6)
 
-Technologies Used
+## Project Structure
 
-HTML5
-CSS3
-JavaScript (ES6)
+- `index.html` - The main HTML document
+- `styles.css` - CSS styling for the game
+- `rock-paper-scissors.js` - JavaScript file containing game logic
 
-Project Structure
+## Future Improvements
 
-index.html - The main HTML document
-styles.css - CSS styling for the game
-rock-paper-scissors.js - JavaScript file containing game logic
+- Add animations when selecting choices
+- Implement a history of moves
+- Add difficulty levels for the computer player
+- Create a mobile-responsive design
 
-Future Improvements
+## License
 
-Add animations when selecting choices
-Implement a history of moves
-Add difficulty levels for the computer player
-Create a mobile-responsive design
-
-License
 This project is open source and available under the MIT License.
-Acknowledgements
+
+## Acknowledgements
+
 This project was created as part of The Odin Project curriculum.
